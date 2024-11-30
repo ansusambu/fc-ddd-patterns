@@ -41,6 +41,17 @@ export default class OrderItem {
     return this._price;
   }
 
+  changeName(name: string) {
+    this._name = name;
+    this.validate();
+  }
+  
+  validate() {
+    if (this._name.length === 0) {
+      throw new Error("Name is required");
+    }
+  }
+
   total(): number {
     return this._price * this._quantity
   }
